@@ -1,2 +1,22 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+from googletrans import Translator
+
+# 1. Initialize the Translator object
+translator = Translator()
+
+# 2. Get input from the user (This fulfills the 'User Interface' part for now)
+print("--- Simple Language Translator ---")
+text_to_translate = input("Enter the text you want to translate: ")
+
+# 3. Define the source and target languages
+# Use 'auto' for source to detect the language automatically.
+# Use language codes (e.g., 'es' for Spanish, 'fr' for French, 'ta' for Tamil)
+source_lang = 'auto' 
+target_lang = 'es' # Example: change this to your desired language code (e.g., 'fr')
+
+# 4. Perform the translation
+translated = translator.translate(text_to_translate, src=source_lang, dest=target_lang)
+
+# 5. Display the result
+print("\nTranslated text:", translated.text)
+print("Detected Source Language:", translated.src)
+print("Target Language:", translated.dest)
